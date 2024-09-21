@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="about.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <nav class="navbar navbar-expand-lg navbar-pink">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">Moood</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+              <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Moood</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="about.html">About</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Instagram</a></li>
+                              <li><a class="dropdown-item" href="#">X</a></li>
+                              <li>
+                                  <hr class="dropdown-divider">
+                              </li>
+                              <li><a class="dropdown-item" href="#">More</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <form class="d-flex mt-3" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </nav>
+
+    <div class="video-container">
+        <video autoplay muted loop id="backgroundVideo">
+            <source src="backvideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay-content">
+            <h1>About</h1><br>
+            <h2>Moood is your go-to destination for music that matches your current vibe.<br> 
+                Explore our curated playlists of happy, sad, angry, and love songs to soundtrack your life. <br></h2>
+                <h2>Happy</h2>
+                <h3>Feeling happy? Let's celebrate with upbeat tunes. Down in the dumps? Find solace in melancholic melodies. <br>
+                Feeling fiery? Channel your anger through powerful music. Or, perhaps you're feeling loveable? <br>
+                Discover romantic songs to serenade your heart. Mood is here to provide the perfect soundtrack for every emotion. <br></h3>
+                <p>
+                   <h3> Tired of endless scrolling through generic playlists? Mood takes the guesswork out of finding the right music.<br> 
+                    Our expert curators have carefully selected the best songs for each mood, ensuring you'll always <br>
+                    find something that resonates.<br></h3>
+                </p>
+
+        </div>
+    </div>
+    
+</body>
+</html>
