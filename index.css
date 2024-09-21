@@ -1,0 +1,96 @@
+*{
+    text-decoration: none;
+
+}
+
+.logo a{
+    font-size: 35px;
+    font-weight: 600;
+    color: white;
+}
+li{
+    list-style: none;
+    display: inline-block;
+}
+li a{
+    font-size: 17px;
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
+}
+.social{
+    display: flex;
+    float: right;
+    display: inline;
+    justify-content: space-between;
+
+
+    
+}
+body{
+    background-image: url(background.jpeg);
+    background-size:1920px 1080px;
+}
+
+main .card{
+    text-align: center;
+    width: 12rem;
+    height:15rem;
+    background-color: pink;
+    padding-top: 2rem;
+ }
+ img{
+    height: 9rem;
+    width:10rem;
+ }
+ .cards1{
+    display: flex;
+    justify-content: space-around;
+    margin: 5rem;
+  
+ }
+ .cards2{
+    display: flex;
+    justify-content: space-around;
+    margin: 5rem;
+    
+ }
+ @media screen and (max-width: 360px) {
+   
+
+    .cards1 {
+        display: flex;
+        justify-content: space-around; 
+        margin: 8px;
+        gap: 5px; 
+    }
+
+    .cards2 {
+        display: flex;
+        justify-content: space-around; /* Evenly spaces card items */
+        margin: 8px; /* Margin around the card container */
+        gap: 5px; /* Space between individual cards */
+    }
+    .navbar-pink {
+        background-color: rgb(188, 47, 122); /* Set the background color to pink */
+    }
+    
+    .navbar-pink .navbar-brand,
+    .navbar-pink .nav-link {
+        color: rgb(0, 0, 0); /* Set text color for contrast */
+    }
+    main.card{
+        text-align: center;
+        width: 15rem;
+        height: 17rem;
+        background-color: pink;
+        padding-top: 2rem;
+    }
+    .card img {
+        width: 100%;      
+        height: auto;     
+        max-width: 100%;  
+    }
+    
+}
+
