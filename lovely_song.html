@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moood Music Player</title>
+    <link rel="stylesheet" href="Happy_song.css">
+    
+</head>
+<body>
+    <div class="player">
+        <div id="songTitle" class="song-title">Song Title</div>
+        <audio id="audio"></audio>
+        <input type="range" id="progress" min="0" max="100" value="0">
+        <div id="currentTime">0:00 / 0:00</div>
+        <div class="controls">
+            <button id="prevBtn">⏮️</button>
+            <button id="backwardBtn">⏪</button>
+            <button id="playPauseBtn">▶️</button>
+            <button id="forwardBtn">⏩</button>
+            <button id="nextBtn">⏭️</button>
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const backwardBtn = document.getElementById('backwardBtn');
+        const forwardBtn = document.getElementById('forwardBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progress = document.getElementById('progress');
+        const currentTime = document.getElementById('currentTime');
+        const songTitle = document.getElementById('songTitle');
+
+        const playlist = [
+            { title: "chaleyan", src:"chaleyan.mp3" },
+            { title: "mix song", src: "mix_song.mp3" },
+            { title: "Akhyaan gulaab", src: "Akhyaan_gulaab.mp3" },
+        ];
+
+        let currentSong = 0;
+
+        function loadSong(index) {
+            const song = playlist[index];
+            audio.src = song.src;
+            songTitle.textContent = song.title;
+            audio.play();
+            playPauseBtn.textContent = '⏸️';
+        }
+
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = '⏸️';
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = '▶️';
+            }
+        }
+
+        function playNextSong() {
+            currentSong = (currentSong + 1) % playlist.length;
+            loadSong(currentSong);
+        }
+
+        function playPreviousSong() {
+            currentSong = (currentSong - 1 + playlist.length) % playlist.length;
+            loadSong(currentSong);
+        }
+
+        function skip(seconds) {
+            audio.currentTime += seconds;
+        }
+
+        function updateProgress() {
+            const value = (audio.currentTime / audio.duration) * 100;
+            progress.value = value;
+            currentTime.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+        }
+
+        function seek() {
+            const time = (progress.value / 100) * audio.duration;
+            audio.currentTime = time;
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        backwardBtn.addEventListener('click', () => skip(-10));
+        forwardBtn.addEventListener('click', () => skip(10));
+        prevBtn.addEventListener('click', playPreviousSong);
+        nextBtn.addEventListener('click', playNextSong);
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('ended', playNextSong);
+        progress.addEventListener('input', seek);
+
+    
+        loadSong(currentSong);
+    </script>
+</body>
+</html> 
