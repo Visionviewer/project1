@@ -5,10 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="main.css">
+    
 </head>
+<script>
+    function validateForm() {
+  const username = document.querySelector('input[type="text"]').value;
+  const password = document.querySelector('input[type="password"]').value;
+
+  const usernameRegex = /^[a-zA-Z0-9_]{3,}$/;
+  
+
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+  if (!usernameRegex.test(username)) {
+    alert("Username must be at least 3 characters long and can only contain letters, numbers, and underscores.");
+    return false;
+  }
+
+  if (!passwordRegex.test(password)) {
+    alert("Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*).");
+    return false;
+  }
+
+  return true;
+}
+
+document.querySelector('form').addEventListener('submit', function(event) {
+  if (!validateForm()) {
+    event.preventDefault(); 
+  }
+});
+</script>
+
 <body>
-    <h1>Moood</h1>
-    <form action="Home.html">
+    <h1 href="index.html">Moood</h1>
+    <form onsubmit="return validateForm()"action="index.html">
         <h1>
             Login
         </h1>
@@ -17,7 +48,7 @@
 
         </div>
         <div class="hello">
-            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="password" required>
 
         </div>
         <button type="submit" class="loginbtn">SUBMIT</button>
